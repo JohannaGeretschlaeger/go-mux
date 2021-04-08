@@ -4,3 +4,6 @@ language: go
 
 go:
   - 1.16.2
+
+services:
+  - postgresql

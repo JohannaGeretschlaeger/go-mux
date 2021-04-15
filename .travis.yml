@@ -7,9 +7,11 @@ go:
 
 services:
   - postgresql
+  - docker
 
 script:
   # Test the code
   - go test -v ./...
   # Build the code
   - CGO_ENABLED=0 GOARCH=amd64 go build -o ms_demo
+  - echo "$REGISTRY_PASSWORD" | docker login --username $REGISTRY_USER --password-stdin
